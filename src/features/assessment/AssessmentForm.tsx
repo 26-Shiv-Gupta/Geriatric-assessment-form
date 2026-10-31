@@ -27,6 +27,18 @@ type AssessmentFormValues = {
   [K in keyof Assessment]: Assessment[K] extends boolean ? boolean : Assessment[K] | '';
 };
 
+const dateInputStyles = {
+  calendarHeaderControl: {
+    width: '28px',
+    height: '28px',
+    minWidth: '28px',
+  },
+  calendarHeaderControlIcon: {
+    width: '14px',
+    height: '14px',
+  },
+};
+
 const samplePatient: AssessmentFormValues = {
   mrn: 'MRN-004821',
   patientName: 'Sushila Deshpande',
@@ -134,6 +146,7 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
                   label="Date of Birth"
                   placeholder="Select date of birth"
                   valueFormat="DD MMM YYYY"
+                  styles={dateInputStyles}
                   key={form.key('dateOfBirth')}
                   {...form.getInputProps('dateOfBirth')}
                 />
@@ -143,6 +156,7 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
                   placeholder="Select assessment date"
                   valueFormat="DD MMM YYYY"
                   maxDate={new Date()}
+                  styles={dateInputStyles}
                   key={form.key('assessmentDate')}
                   {...form.getInputProps('assessmentDate')}
                 />
@@ -210,6 +224,7 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
                   label="Follow-up Date"
                   placeholder="Select follow-up date"
                   valueFormat="DD MMM YYYY"
+                  styles={dateInputStyles}
                   key={form.key('followUpDate')}
                   {...form.getInputProps('followUpDate')}
                 />
